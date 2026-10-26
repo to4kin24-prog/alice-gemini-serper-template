@@ -3,7 +3,7 @@ const MAX_HISTORY_MESSAGES = 8;
 const MAX_HISTORY_MESSAGE_CHARS = 1200;
 const MAX_ALICE_TEXT = 1024;
 const TOTAL_RESPONSE_BUDGET_MS = 3600;
-const SERPER_TIMEOUT_MS = 600;
+const SERPER_TIMEOUT_MS = 1200;
 const GEMINI_TIMEOUT_MS = 2500;
 
 const SYSTEM_PROMPT = [
@@ -88,7 +88,7 @@ async function searchWeb(query, timeoutMs) {
     );
 
     if (!response.ok) {
-      console.warn("Serper request failed with HTTP", response.status);
+      console.warn("Serper search failed:", error?.name, error?.message);
       return "";
     }
 
